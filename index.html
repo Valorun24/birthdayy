@@ -197,23 +197,14 @@
 
     const closeBtn = document.querySelector(".fa-xmark");
 
-    const card2Content = document.querySelector(".card2-content");
-
-    // sembunyikan isi surat awal
-    card2Content.style.display = "none";
-
+    // buka surat
     btnLetter.addEventListener("click", function () {
       boxmail.classList.add("active");
-
-      setTimeout(() => {
-        boxmail.classList.add("showText");
-      }, 3000);
     });
 
+    // tutup surat
     closeBtn.addEventListener("click", function () {
       boxmail.classList.remove("active");
-
-      boxmail.classList.remove("showText");
     });
   </script>
 </html>
