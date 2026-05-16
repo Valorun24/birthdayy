@@ -160,7 +160,9 @@
     // =========================
 
     let datetxt = "17 May";
+
     let charArrDate = datetxt.split("");
+
     let currentIndex = 0;
 
     let date__of__birth = document.querySelector(".date__of__birth span");
@@ -169,12 +171,15 @@
       let timeDatetxt = setInterval(function () {
         if (currentIndex < charArrDate.length) {
           date__of__birth.textContent += charArrDate[currentIndex];
+
           currentIndex++;
         } else {
           let i = document.createElement("i");
+
           i.className = "fa-solid fa-star";
 
           document.querySelector(".date__of__birth").prepend(i);
+
           document.querySelector(".date__of__birth").appendChild(i.cloneNode(true));
 
           clearInterval(timeDatetxt);
@@ -187,51 +192,40 @@
     // =========================
 
     const btnLetter = document.getElementById("btn__letter");
+
     const boxmail = document.querySelector(".boxMail");
+
     const closeBtn = document.querySelector(".fa-xmark");
 
-    // isi surat
-    const message =
-      "On this special day, I want to wish you a very happy birthday! May your day be filled with love, joy, and laughter. You deserve all the happiness in the world, and I hope this year brings you everything you've been hoping for. Happy birthday once again! 🎉🎂🎈";
+    const card2Content = document.querySelector(".card2-content");
 
-    // ambil h2 surat
-    const letterText = document.querySelector(".card2-content h2");
+    // awalnya disembunyikan
+    card2Content.style.opacity = "0";
 
-    // kosongkan dulu
-    letterText.textContent = "";
+    card2Content.style.transform = "translateY(30px)";
 
-    // function ketik otomatis
-    function typeMessage(text, element, speed = 40) {
-      let index = 0;
+    card2Content.style.transition = "all .8s ease";
 
-      let typing = setInterval(() => {
-        if (index < text.length) {
-          element.textContent += text.charAt(index);
-          index++;
-        } else {
-          clearInterval(typing);
-        }
-      }, speed);
-    }
-
-    // klik tombol
+    // buka popup
     btnLetter.addEventListener("click", function () {
-      // munculkan popup
+      // munculkan popup surat
       boxmail.classList.add("active");
 
-      // tunggu 3 detik baru isi surat muncul
+      // reset animasi
+      card2Content.style.opacity = "0";
+      card2Content.style.transform = "translateY(30px)";
+
+      // setelah 3 detik isi surat muncul otomatis
       setTimeout(() => {
-        letterText.textContent = "";
-        typeMessage(message, letterText);
+        card2Content.style.opacity = "1";
+
+        card2Content.style.transform = "translateY(0px)";
       }, 3000);
     });
 
     // close popup
     closeBtn.addEventListener("click", function () {
       boxmail.classList.remove("active");
-
-      // reset isi surat
-      letterText.textContent = "";
     });
   </script>
 </html>
