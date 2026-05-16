@@ -1039,8 +1039,15 @@ body {
   z-index: 999;
 }
 
+#btn__letter {
+  cursor: pointer;
+  position: relative;
+  z-index: 9999;
+  touch-action: manipulation;
+}
+
 .boxMail {
-  z-index: 1000;
+  z-index: 10000;
 }
 
 @media (max-width: 768px) {

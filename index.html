@@ -155,42 +155,42 @@
     </div>
   </body>
   <script>
+    // animasi tanggal
     let datetxt = "17 May";
-    let datatxtletter =
-      "On this special day, I want to wish you a very happy birthday! May your day be filled with love, joy, and laughter. You deserve all the happiness in the world, and I hope this year brings you everything you've been hoping for. Happy birthday once again! 🎉🎂🎈";
-    let titleLetter = "To you";
     let charArrDate = datetxt.split("");
-    let charArrDateLetter = datatxtletter.split("");
-    let charArrTitle = titleLetter.split("");
     let currentIndex = 0;
-    let currentIndexLetter = 0;
-    let currentIndexTitle = 0;
+
     let date__of__birth = document.querySelector(".date__of__birth span");
-    let text__letter = document.querySelector(".text__letter p");
+
     setTimeout(function () {
-      timeDatetxt = setInterval(function () {
+      let timeDatetxt = setInterval(function () {
         if (currentIndex < charArrDate.length) {
           date__of__birth.textContent += charArrDate[currentIndex];
           currentIndex++;
         } else {
           let i = document.createElement("i");
           i.className = "fa-solid fa-star";
+
           document.querySelector(".date__of__birth").prepend(i);
           document.querySelector(".date__of__birth").appendChild(i.cloneNode(true));
+
           clearInterval(timeDatetxt);
         }
       }, 100);
-    }, 12000);
+    }, 1200);
 
-    let mailBox = document.querySelector(".mail");
-    let boxmail = document.querySelector(".boxMail");
-    var close = document.querySelector(".fa-xmark");
-    mailBox.onclick = function () {
-      mailBox.classList.toggle("active");
+    // popup surat
+    const btnLetter = document.getElementById("btn__letter");
+    const boxmail = document.querySelector(".boxMail");
+    const closeBtn = document.querySelector(".fa-xmark");
+
+    // buka surat
+    btnLetter.addEventListener("click", function () {
       boxmail.classList.add("active");
-    };
+    });
 
-    close.addEventListener("click", function () {
+    // tutup surat
+    closeBtn.addEventListener("click", function () {
       boxmail.classList.remove("active");
     });
   </script>
