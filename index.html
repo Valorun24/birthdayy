@@ -184,12 +184,15 @@
     const boxmail = document.querySelector(".boxMail");
     const closeBtn = document.querySelector(".fa-xmark");
 
-    // buka surat
+    // saat tombol diklik
     btnLetter.addEventListener("click", function () {
-      boxmail.classList.add("active");
+      // kasih delay 3 detik baru muncul
+      setTimeout(function () {
+        boxmail.classList.add("active");
+      }, 3000);
     });
 
-    // tutup surat
+    // tombol close
     closeBtn.addEventListener("click", function () {
       boxmail.classList.remove("active");
     });
