@@ -1049,11 +1049,3 @@ body {
 .boxMail {
   z-index: 10000;
 }
-
-@media (max-width: 768px) {
-  .boxMail {
-    width: 95%;
-    height: auto;
-    overflow-y: auto;
-  }
-}
