@@ -155,7 +155,10 @@
     </div>
   </body>
   <script>
-    // animasi tanggal
+    // =========================
+    // ANIMASI TANGGAL
+    // =========================
+
     let datetxt = "17 May";
     let charArrDate = datetxt.split("");
     let currentIndex = 0;
@@ -179,22 +182,56 @@
       }, 100);
     }, 1200);
 
-    // popup surat
+    // =========================
+    // POPUP SURAT
+    // =========================
+
     const btnLetter = document.getElementById("btn__letter");
     const boxmail = document.querySelector(".boxMail");
     const closeBtn = document.querySelector(".fa-xmark");
 
-    // saat tombol diklik
+    // isi surat
+    const message =
+      "On this special day, I want to wish you a very happy birthday! May your day be filled with love, joy, and laughter. You deserve all the happiness in the world, and I hope this year brings you everything you've been hoping for. Happy birthday once again! 🎉🎂🎈";
+
+    // ambil h2 surat
+    const letterText = document.querySelector(".card2-content h2");
+
+    // kosongkan dulu
+    letterText.textContent = "";
+
+    // function ketik otomatis
+    function typeMessage(text, element, speed = 40) {
+      let index = 0;
+
+      let typing = setInterval(() => {
+        if (index < text.length) {
+          element.textContent += text.charAt(index);
+          index++;
+        } else {
+          clearInterval(typing);
+        }
+      }, speed);
+    }
+
+    // klik tombol
     btnLetter.addEventListener("click", function () {
-      // kasih delay 3 detik baru muncul
-      setTimeout(function () {
-        boxmail.classList.add("active");
+      // munculkan popup
+      boxmail.classList.add("active");
+
+      // tunggu 3 detik baru isi surat muncul
+      setTimeout(() => {
+        letterText.textContent = "";
+        typeMessage(message, letterText);
       }, 3000);
     });
 
-    // tombol close
+    // close popup
     closeBtn.addEventListener("click", function () {
       boxmail.classList.remove("active");
+
+      // reset isi surat
+      letterText.textContent = "";
     });
   </script>
 </html>
