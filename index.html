@@ -199,27 +199,39 @@
 
     const card2Content = document.querySelector(".card2-content");
 
-    // awalnya disembunyikan
-    card2Content.style.opacity = "0";
+    // sembunyikan isi surat awal
+    card2Content.style.display = "none";
 
-    card2Content.style.transform = "translateY(30px)";
-
-    card2Content.style.transition = "all .8s ease";
-
-    // buka popup
+    // klik tombol surat
     btnLetter.addEventListener("click", function () {
-      // munculkan popup surat
+      // popup muncul
       boxmail.classList.add("active");
 
-      // reset animasi
-      card2Content.style.opacity = "0";
-      card2Content.style.transform = "translateY(30px)";
+      // reset isi surat
+      card2Content.style.display = "none";
 
-      // setelah 3 detik isi surat muncul otomatis
+      // 3 detik kemudian isi surat muncul
       setTimeout(() => {
-        card2Content.style.opacity = "1";
+        card2Content.style.display = "block";
 
-        card2Content.style.transform = "translateY(0px)";
+        // animasi smooth
+        card2Content.animate(
+          [
+            {
+              opacity: 0,
+              transform: "translateY(20px)",
+            },
+            {
+              opacity: 1,
+              transform: "translateY(0px)",
+            },
+          ],
+          {
+            duration: 800,
+            easing: "ease",
+            fill: "forwards",
+          },
+        );
       }, 3000);
     });
 
