@@ -202,18 +202,42 @@
     // sembunyikan isi surat awal
     card2Content.style.display = "none";
 
+    // klik tombol surat
     btnLetter.addEventListener("click", function () {
+      // popup muncul
       boxmail.classList.add("active");
 
+      // reset isi surat
+      card2Content.style.display = "none";
+
+      // 3 detik kemudian isi surat muncul
       setTimeout(() => {
-        boxmail.classList.add("showText");
+        card2Content.style.display = "block";
+
+        // animasi smooth
+        card2Content.animate(
+          [
+            {
+              opacity: 0,
+              transform: "translateY(20px)",
+            },
+            {
+              opacity: 1,
+              transform: "translateY(0px)",
+            },
+          ],
+          {
+            duration: 800,
+            easing: "ease",
+            fill: "forwards",
+          },
+        );
       }, 3000);
     });
 
+    // close popup
     closeBtn.addEventListener("click", function () {
       boxmail.classList.remove("active");
-
-      boxmail.classList.remove("showText");
     });
   </script>
 </html>
